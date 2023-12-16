@@ -64,7 +64,7 @@ const Hero = () => {
             className='navBtn'
             variants={textVariants}>Contact Me</motion.a>
           </motion.div>
-          <a href="#skills" className='nextButton'>
+          <a href="#Skills" className='nextButton'>
             <motion.img 
             variants={textVariants}
             animate="scrollButton" 
