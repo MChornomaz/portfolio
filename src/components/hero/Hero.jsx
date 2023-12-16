@@ -39,7 +39,6 @@ const sliderVariants = {
 }
 
 
-
 const Hero = () => {
   return (
     <div className="hero">
@@ -56,17 +55,23 @@ const Hero = () => {
           variants={textVariants}>Web Developer</motion.h1>
           <motion.div 
           variants={textVariants} className="buttons">
-            <motion.button 
-            variants={textVariants}>See the Latest Works</motion.button>
-            <motion.button 
-            variants={textVariants}>Contact Me</motion.button>
+            <motion.a 
+            href='#portfolio'
+            className='navBtn'
+            variants={textVariants}>See the Latest Works</motion.a>
+            <motion.a 
+            href='#contact'
+            className='navBtn'
+            variants={textVariants}>Contact Me</motion.a>
           </motion.div>
-          <motion.img 
-          variants={textVariants}
-          animate="scrollButton" 
-          src="/scroll.png" 
-          alt="mouse icon" 
-          />
+          <a href="#skills" className='nextButton'>
+            <motion.img 
+            variants={textVariants}
+            animate="scrollButton" 
+            src="/scroll.png" 
+            alt="mouse icon" 
+            />
+          </a>
         </motion.div>
       </div>
       <motion.div 
@@ -75,11 +80,15 @@ const Hero = () => {
       initial="initial" 
       animate="animate"
       >
-        Writer Content Creator Influencer
+        Frontend Backend FullStack
       </motion.div>
-      <div className="imageContainer">
-        <img src="/hero.png" alt="photo" />
-      </div>
+      <motion.div 
+      className="imageContainer"
+      initial={{scale: 0.4, opacity: 0, y: 500}}
+      animate={{scale: 1, opacity: 1, y: 0, transition: {duration: 2}}}
+      >
+        <img src="/hero4.png" alt="photo" />
+      </motion.div>
     </div>
   )
 }

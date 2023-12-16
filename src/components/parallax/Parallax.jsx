@@ -21,16 +21,16 @@ const Parallax = ({type}) => {
     <div 
     ref={ref}
     className="parallax" 
-    style={{background: type==='services' ? darkBg : lightBg}}>
+    style={{background: type==='skills' ? darkBg : lightBg}}>
       <motion.h2
       style={{y: yText}}
       >
-        {type==='services' ? "What We Do?" : "What We Did?"}</motion.h2>
+        {type==='skills' ? "What We Do?" : "What We Did?"}</motion.h2>
       <motion.div className="mountains"></motion.div>
       <motion.div 
       style={
         {y: yBg, 
-        backgroundImage: `url(${type==='services' ? '/planets.png' : '/sun.png'})`
+        backgroundImage: `url(${type==='skills' ? '/planets.png' : '/sun.png'})`
         }
       } 
       className="planets"></motion.div>
