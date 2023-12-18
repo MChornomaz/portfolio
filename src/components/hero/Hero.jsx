@@ -56,11 +56,11 @@ const Hero = () => {
           <motion.div 
           variants={textVariants} className="buttons">
             <motion.a 
-            href='#portfolio'
+            href='#Portfolio'
             className='navBtn'
             variants={textVariants}>See the Latest Works</motion.a>
             <motion.a 
-            href='#contact'
+            href='#Contact'
             className='navBtn'
             variants={textVariants}>Contact Me</motion.a>
           </motion.div>
