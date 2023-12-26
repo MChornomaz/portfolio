@@ -245,8 +245,23 @@ const fullStack = [
     },
 ]
 
+const portfolioType = [
+    {
+      id: 1,
+      name: 'Layouts',
+    },
+    {
+      id: 2,
+      name: 'React',
+    },
+    {
+      id: 3,
+      name: 'Full Stack',
+    },
+  ]
 
 
 
 
-export {frontendSkills, backendSkills, generalSkills, layouts, reactStack, fullStack}
+
+export {frontendSkills, backendSkills, generalSkills, layouts, reactStack, fullStack, portfolioType}

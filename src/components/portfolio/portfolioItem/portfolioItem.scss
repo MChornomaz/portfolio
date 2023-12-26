@@ -1,0 +1,177 @@
+.portfolioItem{
+
+    .container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .wrapper{
+            max-width: 1366px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 120px 10% 0 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            justify-content: center;
+
+            .imageContainer{
+                height: 40%;
+                width: 80%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+            }
+            
+            .textContainer{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                height: 60%;
+
+                h3{
+                    font-size: 36px;
+                }
+
+                p{
+                    color: gray;
+                    font-size: 18px;
+                }
+
+                .technologies{
+                    display: flex;
+                    align-items: baseline;
+                    gap: 10px;
+
+                    .technologiesTitle{
+                        color: orange;
+                        font-size: 20px;
+                    }
+
+                    .technologiesList{
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: start;
+                        gap: 10px;
+                        flex-wrap: wrap;
+
+                        .technology{
+                            font-size: 17px;
+                            color: gray;
+                        }
+                    }
+                }
+
+                .links{
+                    width: 150px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .linkTitle{
+                        color: orange;
+                        font-size: 20px;
+                    }
+
+                    .link{
+                        transition: transform .3s ease-in;
+
+                        & img{
+                            width: 35px;
+                        }
+
+                        &:hover{
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .portfolioItem{
+        .container{
+            .wrapper{
+                gap: 10px;
+                padding: 90px 10% 0 10%;
+        
+                .imageContainer{
+                    height: 25%;
+                    width: 100%;
+                }
+                
+                .textContainer{
+                    gap: 15px;
+    
+                    h3{
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolioItem{
+        .container{
+            .wrapper{
+                gap: 10px;
+                padding: 70px 10% 0 10%;
+        
+                .textContainer{
+                    gap: 10px;
+    
+                    h3{
+                        font-size: 4.5vw;
+                    }
+
+                    p{
+                        font-size: 3vw;
+                    }
+
+                    .technologies{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: baseline;
+                        gap: 10px;
+    
+                        .technologiesTitle{
+                            font-size: 3.1vw;
+                        }
+    
+                        .technologiesList{
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: start;
+                            row-gap: 5px;
+                            column-gap: 10px;
+        
+                            .technology{
+                                font-size: 2.6vw;
+
+                            }
+                        }
+    
+                    }
+                    .links{
+                        width: 120px;
+                        .linkTitle{
+                            font-size: 2.6vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
