@@ -1,9 +1,10 @@
 import { useRef } from 'react';
 import './parallax.scss'
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform , useInView} from 'framer-motion';
 
 const Parallax = ({type}) => {
   const ref = useRef()
+  const isInView = useInView(ref, { margin: '-100px' })
 
   const {scrollYProgress} = useScroll({
     target: ref,
@@ -24,6 +25,8 @@ const Parallax = ({type}) => {
     style={{background: type==='skills' ? darkBg : lightBg}}>
       <motion.h2
       style={{y: yText}}
+      initial={{scale: 0.01}}
+      animate={isInView ? {scale: 1, transition: {duration: 1.5}} : {scale: 0.01}}
       >
         {type==='skills' ? "My Skills" : "My Works"}</motion.h2>
       <motion.div className="mountains"></motion.div>
