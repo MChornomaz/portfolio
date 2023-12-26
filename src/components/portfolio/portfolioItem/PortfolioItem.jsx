@@ -73,11 +73,11 @@ const PortfolioItem = ({ item }) => {
                             <p className='linkTitle'>Links: </p>
                             {item.url && item.url.length > 0
                                 && <a href={item.url} className="link" target='blank'>
-                                    <img src="/github.png" alt="Link to github of the project" />
+                                    <img src="/url.png"  alt="Link to github of the project" />
                                 </a>}
                             {item.gitHubUrl && item.gitHubUrl.length > 0
                                 && <a href={item.gitHubUrl} className="link" target='blank'>
-                                    <img src="/url.png" alt="Link to project" />
+                                    <img src="/github.png"  alt="Link to project" />
                                 </a>}
                         </motion.div>
                     </motion.div>
