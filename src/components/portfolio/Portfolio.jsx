@@ -11,8 +11,6 @@ const Portfolio = () => {
   const isInView = useInView(ref, { margin: '-100px' })
   const [currentTab, setCurrentTab] = useState(portfolioType[0].name)
 
-  
-
   const scrollToTop = (ref) => {
     if (ref && ref.current) {
       ref.current.scrollIntoView({
