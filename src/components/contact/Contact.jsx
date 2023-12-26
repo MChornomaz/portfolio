@@ -1,7 +1,9 @@
-import { useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './contact.scss'
 import { motion, useInView } from 'framer-motion';
 import emaljs from '@emailjs/browser'
+import Modal from '../modal/Modal';
+import Button from '../button/Button';
 
 
 const variants = {
@@ -38,18 +40,53 @@ const titleVariants = {
 const Contact = () => {
     const ref = useRef()
     const formRef = useRef()
+    const [showModal, setShowModal] = useState(false)
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setSetMessage] = useState('')
+
+    const showModalHandler = useCallback(()=> {
+        setShowModal(!showModal)
+    }, [showModal])
+
+    const nameChangeHandler = useCallback((e)=> {
+        setName(e.target.value)
+    }, [])
+
+    const emailChangeHandler = useCallback((e)=> {
+        setEmail(e.target.value)
+    }, [])
+
+    const messageChangeHandler = useCallback((e)=> {
+        setSetMessage(e.target.value)
+    }, [])
+
+    const resetFormHandler = useCallback(()=> {
+        setName('')
+        setEmail('')
+        setSetMessage('')
+    }, [])
+
 
     const isInView = useInView(ref, { margin: '-100px' })
 
     const submitFormHandler = (e) => {
         e.preventDefault();
 
-        emaljs.sendForm('service_0jmcxom', 'template_hl9k15b', formRef.current, 'ndbGg4b3prLYrm5GR')
-            .then((result) => {
-                console.log(result.text);
+        showModalHandler()
+
+        emaljs.sendForm(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+            import.meta.env.VITE_EMAILJS_EMAIL_TEMPLATE_ID, 
+            formRef.current, 
+            import.meta.env.VITE_EMAILJS_PERSONAL_KEY)
+            .then(() => {
+                showModalHandler()
+                resetFormHandler()
             }, (error) => {
                 console.log(error.text)
             })
+
     }
 
     return (
@@ -115,12 +152,32 @@ const Contact = () => {
                     ref={formRef}
                     onSubmit={submitFormHandler}
                 >
-                    <input type="text" placeholder='Name' name='name' required />
-                    <input type="email" placeholder='Email' name='email' required />
-                    <textarea rows="8" placeholder='Message' name='message'></textarea>
-                    <button type='submit'>Submit</button>
+                    <input 
+                    type="text" 
+                    placeholder='Name' 
+                    name='name' required 
+                    value={name} 
+                    onChange={(e) => nameChangeHandler(e)} 
+                    />
+                    <input 
+                    type="email" 
+                    placeholder='Email' 
+                    name='email' 
+                    required 
+                    value={email} 
+                    onChange={(e) => emailChangeHandler(e)} 
+                    />
+                    <textarea 
+                    rows="8" 
+                    placeholder='Message' 
+                    name='message'
+                    value={message} 
+                    onChange={(e) => messageChangeHandler(e)} 
+                    ></textarea>
+                    <Button type='submit'>Submit</Button>
 
                 </motion.form>
+                {showModal && <Modal close={showModalHandler} />}
             </motion.div>
         </div>
     )

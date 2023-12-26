@@ -1,4 +1,4 @@
-.contact{
+.contact {
     height: 100%;
     max-width: 1366px;
     padding: 0 10%;
@@ -8,35 +8,36 @@
     align-items: center;
     justify-content: center;
 
-    .textContainer{
-        h2{
+    .textContainer {
+        h2 {
             font-size: 80px;
             margin-bottom: 50px;
         }
     }
 
-    .formContainer{
+    .formContainer {
         width: 60%;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        .phoneSvg{
+        .phoneSvg {
             stroke: orange;
             position: absolute;
             margin: auto;
             z-index: -1;
         }
 
-        form{
+        form {
             display: flex;
             flex-direction: column;
             gap: 20px;
             width: 100%;
         }
 
-        input, textarea{
+        input,
+        textarea {
             padding: 20px;
             background-color: transparent;
             border: 1px solid #fff;
@@ -45,41 +46,44 @@
             font-size: 18px;
         }
 
-        button{
-            padding: 20px;
-            border: none;
-            background-color: orange;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 26px;
-        }
+        // button{
+        //     padding: 20px;
+        //     border: none;
+        //     background-color: orange;
+        //     cursor: pointer;
+        //     font-weight: 500;
+        //     font-size: 26px;
+        // }
+
+        
+
     }
 
 
 }
 
 @media (max-width: 900px) {
-    .contact{
-    
-        .textContainer{
-            h2{
+    .contact {
+
+        .textContainer {
+            h2 {
                 font-size: 7.5vw;
             }
         }
-    
-        .formContainer{
+
+        .formContainer {
             width: 100%;
         }
     }
 }
 
 @media (max-width: 600px) {
-    .contact{
-        .formContainer{
-            .phoneSvg{
+    .contact {
+        .formContainer {
+            .phoneSvg {
                 width: 100%;
 
-                svg{
+                svg {
                     width: 100%;
                 }
             }
