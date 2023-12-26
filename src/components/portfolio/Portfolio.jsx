@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import './portfolio.scss'
-import {motion, useScroll, useSpring, useTransform} from 'framer-motion'
+import {motion, useScroll, useSpring, useInView} from 'framer-motion'
 import PortfolioTabs from './portfolioTabs/PortfolioTabs'
 import PortfolioSlider from './portfolioSlider/PortfolioSlider';
 import { portfolioType, layouts, reactStack, fullStack } from '../../common/constants';
 
 
 const Portfolio = () => {
+  const ref = useRef()
+  const isInView = useInView(ref, { margin: '-100px' })
   const [currentTab, setCurrentTab] = useState(portfolioType[0].name)
 
-  const ref = useRef()
+  
 
   const scrollToTop = (ref) => {
     if (ref && ref.current) {
@@ -21,8 +23,10 @@ const Portfolio = () => {
   };
 
   useEffect(()=> {
-    scrollToTop(ref)
-  }, [currentTab])
+    if(isInView){
+      scrollToTop(ref)
+    }
+  }, [currentTab, isInView])
 
   const changeTabHandler = useCallback((tabName) => {
     setCurrentTab(tabName)
