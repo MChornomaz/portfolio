@@ -3,10 +3,10 @@ import './navbar.scss'
 import Sidebar from '../sidebar/Sidebar'
 
 
-const Navbar = () => {
+const Navbar = ({needScrollHandler}) => {
   return (
     <div className="navbar">
-      <Sidebar />
+      <Sidebar needScrollHandler={needScrollHandler} />
       <div className="wrapper">
         <motion.span
         initial={{opacity: 0, scale: 0.5}}

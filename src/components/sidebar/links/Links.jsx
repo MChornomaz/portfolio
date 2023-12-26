@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { useCallback } from 'react';
 const variants = {
   open: {
     transition: {
@@ -26,13 +27,18 @@ const itemVariants = {
 };
 
 
-const Links = ({setOpen}) => {
+const Links = ({setOpen, needScrollHandler}) => {
   const items = [
     'Homepage',
     'Skills',
     'Portfolio',
     'Contact'
     ]
+
+    const linkClickHandler = useCallback(()=> {
+      setOpen(false)
+      needScrollHandler(false)
+    }, [needScrollHandler, setOpen])
 
 
   return (
@@ -45,7 +51,7 @@ const Links = ({setOpen}) => {
           variants={itemVariants}
           whileHover={{scale: 1.1}}
           whileTap={{scale: 0.95}}
-          onClick={() => setOpen(false)}
+          onClick={linkClickHandler}
           >
             {item}
           </motion.a>

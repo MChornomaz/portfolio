@@ -4,7 +4,7 @@ import './sidebar.scss'
 import ToggleButton from './toggleButton/ToggleButton'
 import { motion } from 'framer-motion';
 
-const Sidebar = () => {
+const Sidebar = ({needScrollHandler}) => {
   const [open, setOpen] = useState(false);
   
   
@@ -36,7 +36,7 @@ const Sidebar = () => {
       className="bg"
       variants={variants}
       >
-        <Links setOpen={setOpen}/>
+        <Links setOpen={setOpen} needScrollHandler={needScrollHandler}/>
       </motion.div>
       <ToggleButton setOpen={setOpen} />
     </motion.div>

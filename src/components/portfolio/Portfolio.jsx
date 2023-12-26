@@ -6,10 +6,10 @@ import PortfolioSlider from './portfolioSlider/PortfolioSlider';
 import { portfolioType, layouts, reactStack, fullStack } from '../../common/constants';
 
 
-const Portfolio = () => {
+const Portfolio = ({needScroll, setNeedScroll}) => {
   const ref = useRef()
-  const isInView = useInView(ref, { margin: '-100px' })
   const [currentTab, setCurrentTab] = useState(portfolioType[0].name)
+  
 
   const scrollToTop = (ref) => {
     if (ref && ref.current) {
@@ -21,14 +21,15 @@ const Portfolio = () => {
   };
 
   useEffect(()=> {
-    if(isInView){
+    if(needScroll){
       scrollToTop(ref)
     }
-  }, [currentTab, isInView])
+  }, [currentTab, needScroll])
 
   const changeTabHandler = useCallback((tabName) => {
     setCurrentTab(tabName)
-  }, [])
+    setNeedScroll(true)
+  }, [setNeedScroll])
 
   const {scrollYProgress} = useScroll({
     target: ref,

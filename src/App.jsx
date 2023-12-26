@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import './app.scss'
 import Contact from './components/contact/Contact';
 import Hero from './components/hero/Hero';
@@ -7,6 +8,12 @@ import Portfolio from './components/portfolio/Portfolio';
 import Skills from './components/skills/Skills';
 
 const App = () => {
+
+  const [needScroll, setNeedScroll] = useState(false)
+
+  const needScrollHandler = useCallback((value) => {
+    setNeedScroll(value)
+  }, [])
 
   return <div>
     <section id='Homepage'>
@@ -22,7 +29,7 @@ const App = () => {
     <section id='Portfolio'>
       <Parallax type="Portfolio" />
     </section>
-    <Portfolio />
+    <Portfolio needScroll={needScroll} setNeedScroll={needScrollHandler} />
     <section id='Contact'>
       <Contact />
     </section>
