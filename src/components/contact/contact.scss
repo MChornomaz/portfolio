@@ -1,7 +1,7 @@
 .contact{
     height: 100%;
     max-width: 1366px;
-    padding: 0 100px;
+    padding: 0 10%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
 
     .textContainer{
         h2{
-            font-size: 100px;
+            font-size: 9vw;
             margin-bottom: 50px;
         }
     }
@@ -56,4 +56,33 @@
     }
 
 
+}
+
+@media (max-width: 900px) {
+    .contact{
+    
+        .textContainer{
+            h2{
+                font-size: 7.5vw;
+            }
+        }
+    
+        .formContainer{
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .contact{
+        .formContainer{
+            .phoneSvg{
+                width: 100%;
+
+                svg{
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
